@@ -5,19 +5,14 @@ body,
     width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
-
-    body {
-        color: white;
-        background: black;
-    }
+.test {
+    color: #2e3153;
 }
 
 .theme-bg {
-    background: #353a6b;
+    background-image: url(assets/bg.svg);
+    background-position: center;
+    background-size: cover;
 }
 
 .theme-fg {
@@ -30,11 +25,10 @@ body,
 
 .simon-lee {
     background: repeat-y center/100% linear-gradient(to bottom, #8b83ac, #929bf0);
-    /*animation: gradient 0.5s steps(5, jump-both) infinite;*/
 }
 
 .simon-lee-2 {
-    background: no-repeat center/80% url("assets/simon-lee-unsplash.png");
+    background: no-repeat center/85% url("assets/simon-lee-unsplash.png");
 }
 
 @keyframes gradient {
@@ -51,7 +45,21 @@ body,
     }
 }
 
-
 .comforter {
-    font-family: 'Comforter', cursive;
+    font-family: "Comforter", cursive;
+}
+
+*::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 5px;
+    background-color: #2b2c4a;
+    border-radius: 2.5px;
+    ;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    /* or add it to the track */
 }
