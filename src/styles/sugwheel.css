@@ -1,0 +1,13 @@
+.orbit {
+    animation: rot360 100s linear 0s infinite;
+}
+
+@keyframes rot360 {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}

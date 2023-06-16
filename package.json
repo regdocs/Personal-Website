@@ -12,8 +12,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.6.0",
     "react-icons": "^4.9.0",
-    "react-router-dom": "^6.13.0"
+    "react-router-dom": "^6.13.0",
+    "react-typing-effect": "^2.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
