@@ -5,6 +5,7 @@ import Marq from "./components/marq";
 import Home from "./sections/home";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import About from "./sections/about";
 
 function App() {
   const location = useLocation();
@@ -39,7 +40,7 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
                   <Home />
                 </motion.div>
@@ -55,9 +56,9 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
-                  <Home />
+                  <About />
                 </motion.div>
               }
             />
@@ -71,7 +72,7 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
                   <Home />
                 </motion.div>
@@ -87,7 +88,7 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
                   <Home />
                 </motion.div>
@@ -103,7 +104,7 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
                   <Home />
                 </motion.div>
@@ -119,7 +120,7 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
                   <Home />
                 </motion.div>
@@ -135,7 +136,7 @@ function App() {
                   animate="animate"
                   exit="exit"
                   variants={pageTransitions}
-                  transition={{ duration: 0.3, delay: 0 }}
+                  transition={{ duration: 0.1, delay: 0 }}
                 >
                   <Home />
                 </motion.div>
