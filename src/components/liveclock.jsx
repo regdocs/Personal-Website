@@ -24,7 +24,7 @@ class LiveClockUpdate extends Component {
   render() {
     return (
       <div>
-        <h2 className="text-center">
+        <h2 className="text-center text-4xl">
           <span className="text-sm">GMT+05:30</span>
           <br />
           T+

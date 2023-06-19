@@ -10,7 +10,7 @@ import ReactTypingEffect from "react-typing-effect";
 
 function Home() {
   return (
-    <div className="flex flex-row h-full w-full relative">
+    <div className="flex flex-row h-full w-full relative snap-start">
       <div className="w-1/2 p-16 overflow-visible flex flex-col justify-between">
         <div className="text-3xl font-black h-20"></div>
         <div className="overflow-visible z-10 pl-32">

@@ -1,24 +1,27 @@
 /* eslint-disable react/jsx-key */
 import {
   FaCaretDown,
-  FaEnvelopeOpenText,
+  FaEnvelope,
   FaFileDownload,
   FaGraduationCap,
   FaHome,
-  FaInfo,
   FaLanguage,
+  FaMandalorian,
   FaPhotoVideo,
   FaRegNewspaper,
   FaScroll,
 } from "react-icons/fa";
 import "../styles/navigation.css";
 import Sugwheel from "./sugwheel";
+import { useNavigate } from "react-router-dom";
 
 function Navigation() {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full absolute h-full top-0 flex justify-between z-30 pointer-events-none">
       <div className="pointer-events-auto shadow-xl text-3xl h-20 font-semibold font-sans flex justify-center items-center w-[210px] p-12 px-10 pr-16 bg-white text-[#474a75] rounded-br-full">
-        @jayzsh
+        <FaMandalorian fill="#474a75" fontSize={60} />
       </div>
 
       <div className="pointer-events-auto shadow-lg h-20 w-fit no-scrollbar overflow-auto bg-[#2c3059] bg-opacity-50 justify-between flex flex-row px-5 items-center rounded-3xl inset-5 backdrop-blur-lg m-[20px]">
@@ -32,7 +35,7 @@ function Navigation() {
           [
             1,
             "About",
-            <FaInfo className="inline-block mr-2" fontSize={20} />,
+            <FaMandalorian className="inline-block mr-2" fontSize={20} />,
             "/about",
           ],
           [
@@ -67,6 +70,7 @@ function Navigation() {
           ],
         ].map((i) => (
           <div
+            onClick={() => navigate(i[3])}
             key={i[0]}
             className="h-[80%] rounded-lg flex items-center uppercase whitespace-nowrap font-mono font-bold hover:bg-slate-900 hover:bg-opacity-20 text-white glow-on-hover transition px-4 duration-300 hover:cursor-pointer"
           >
@@ -82,7 +86,7 @@ function Navigation() {
         {[
           [
             0,
-            <FaEnvelopeOpenText className="inline-block mr-2" fontSize={20} />,
+            <FaEnvelope className="inline-block mr-2" fontSize={20} />,
             "/home",
           ],
           [
