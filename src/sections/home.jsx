@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   FaAngleRight,
   FaDownload,
@@ -7,8 +8,15 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import ReactTypingEffect from "react-typing-effect";
+import { navConfig } from "../config/nav.config";
 
-function Home() {
+// eslint-disable-next-line react/prop-types
+function Home({ setDotmapConfig }) {
+  useEffect(() => {
+    setDotmapConfig([navConfig[0][0], navConfig[0][4]]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="flex flex-row h-full w-full relative snap-start">
       <div className="w-1/2 p-16 overflow-visible flex flex-col justify-between">
