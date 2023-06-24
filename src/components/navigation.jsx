@@ -2,21 +2,20 @@
 import {
   FaCaretDown,
   FaEnvelope,
-  FaFileDownload,
-  FaGraduationCap,
-  FaHome,
   FaLanguage,
   FaMandalorian,
-  FaPhotoVideo,
-  FaRegNewspaper,
-  FaScroll,
 } from "react-icons/fa";
 import "../styles/navigation.css";
 import Sugwheel from "./sugwheel";
 import { useNavigate } from "react-router-dom";
+import { navConfig } from "../config/nav.config";
+import { useState } from "react";
 
-function Navigation() {
+// eslint-disable-next-line react/prop-types
+function Navigation({ setDotmapConfig }) {
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  const [activeRoute, setActiveRoute] = useState(0);
 
   return (
     <div className="w-full absolute h-full top-0 flex justify-between z-30 pointer-events-none">
@@ -25,54 +24,15 @@ function Navigation() {
       </div>
 
       <div className="pointer-events-auto shadow-lg h-20 w-fit no-scrollbar overflow-auto bg-[#2c3059] bg-opacity-50 justify-between flex flex-row px-5 items-center rounded-3xl inset-5 backdrop-blur-lg m-[20px]">
-        {[
-          [
-            0,
-            "Home",
-            <FaHome className="inline-block mr-2" fontSize={20} />,
-            "/home",
-          ],
-          [
-            1,
-            "About",
-            <FaMandalorian className="inline-block mr-2" fontSize={20} />,
-            "/about",
-          ],
-          [
-            2,
-            "Portfolio",
-            <FaPhotoVideo className="inline-block mr-2" fontSize={20} />,
-            "/portfolio",
-          ],
-          [
-            3,
-            "Blogs",
-            <FaRegNewspaper className="inline-block mr-2" fontSize={20} />,
-            "/blogs",
-          ],
-          [
-            4,
-            "Publications",
-            <FaScroll className="inline-block mr-2" fontSize={20} />,
-            "/publications",
-          ],
-          [
-            5,
-            "Communities",
-            <FaGraduationCap className="inline-block mr-2" fontSize={20} />,
-            "/communities",
-          ],
-          [
-            6,
-            "Resume",
-            <FaFileDownload className="inline-block mr-2" fontSize={20} />,
-            "/resume",
-          ],
-        ].map((i) => (
+        {navConfig.map((i) => (
           <div
-            onClick={() => navigate(i[3])}
+            onClick={() => {
+              setActiveRoute(i[0]);
+              setDotmapConfig([i[0], i[4]]);
+              navigate(i[3]);
+            }}
             key={i[0]}
-            className="h-[80%] rounded-lg flex items-center uppercase whitespace-nowrap font-mono font-bold hover:bg-slate-900 hover:bg-opacity-20 text-white glow-on-hover transition px-4 duration-300 hover:cursor-pointer"
+            className="h-[80%] rounded-lg flex items-center uppercase whitespace-nowrap font-mono font-bold hover:bg-slate-900 hover:bg-opacity-20 text-white transition px-4 duration-300 hover:cursor-pointer"
           >
             <span className="inline-block mr-2">
               {i[2]}
