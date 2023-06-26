@@ -1,0 +1,17 @@
+.main-menu-edge {
+  /* border-image: linear-gradient(transparent, transparent, rgba(255, 255, 255, 0.434), transparent, transparent) 1;
+  border-right-width: 1px;
+  border-left-width: 1px; */
+}
+
+.main-menu-item {
+  mask-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.857), transparent);
+}
+
+.main-menu-container {
+  mask-image: linear-gradient(to bottom, transparent, black, black, transparent);
+}
+
+.main-menu-item-overlay {
+  /* background-image: linear-gradient(to right, #565d9f, transparent, #565d9f); */
+}
