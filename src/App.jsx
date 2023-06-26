@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import About from "./sections/about";
 import { DotmapContext } from "./context/dotmap.context";
 import { useState } from "react";
+import Portfolio from "./sections/portfolio";
 
 function App() {
   const location = useLocation();
@@ -78,7 +79,7 @@ function App() {
                     variants={pageTransitions}
                     transition={{ duration: 0.1, delay: 0 }}
                   >
-                    <Home setDotmapConfig={setDotmapConfig} />
+                    <Portfolio setDotmapConfig={setDotmapConfig} />
                   </motion.div>
                 }
               />
