@@ -1,68 +1,73 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/portfolio.css";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
+import { projects } from "../../config/portfolio.config";
 
 function Page1() {
-  /* useEffect(() => {
+  const [currentSelection, setCurrentSelection] = useState(0);
+
+  const menuItemBaseClassList =
+    "relative cursor-pointer w-full h-16 main-menu-item transition duration-200 uppercase font-bold font-mono snap-center";
+  const menuItemClassList =
+    menuItemBaseClassList + " " + "hover:bg-white hover:bg-opacity-10";
+  const menuItemSelectedClassList =
+    menuItemClassList + " " + "bg-white bg-opacity-10 border-y";
+
+  function removeCurrentSelection(virtualIndex) {
+    console.log("removing selection: " + virtualIndex);
+    const menuItem =
+      document.getElementsByClassName("main-menu-item")[virtualIndex];
+    menuItem.className = menuItemClassList;
+  }
+
+  useEffect(() => {
     const container = document.getElementsByClassName("main-menu-container")[0];
-    const containerChildHeight =
+    const menuItems = document.getElementsByClassName("main-menu-item");
+    const { top, height } = container.getBoundingClientRect();
+    const menuItemHeight =
       document
         .getElementsByClassName("main-menu-item")[0]
         .getBoundingClientRect().height || 64;
 
-    var lastYOffset = Infinity;
-    return;
     container.addEventListener("scrollend", () => {
-      const currentYOffset = container.children[0].getBoundingClientRect().top;
-      if (currentYOffset < lastYOffset) {
-        // scroll down detected
-        for (var i = 0; i < container.children.length; i++) {
-          const { top, height } = container.children[i].getBoundingClientRect();
-          const totalYOffsetToChildCenter = top + height / 2;
-          container.scrollTo(
-            0,
-            totalYOffsetToChildCenter + containerChildHeight
-          );
+      for (var i = 0; i < menuItems.length; i++) {
+        const childYOffset = menuItems[i].getBoundingClientRect().top;
+
+        if (childYOffset > top + height / 2 - menuItemHeight) {
+          setCurrentSelection((prev) => {
+            if (i !== prev) removeCurrentSelection(prev);
+            return i;
+          });
+          return;
         }
-        lastYOffset = currentYOffset;
-      } else {
-        // scroll up detected
-        for (var j = 0; j < container.children.length; j++) {
-          const { top, height } = container.children[j].getBoundingClientRect();
-          const totalYOffsetToChildCenter = top + height / 2;
-          container.scrollTo(
-            0,
-            totalYOffsetToChildCenter - containerChildHeight
-          );
-        }
-        lastYOffset = currentYOffset;
       }
     });
-  }, []); */
+
+    return () => {
+      container.removeEventListener("fullscreenchange", () => {});
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function setSelectionEffect() {
+    const menuItem =
+      document.getElementsByClassName("main-menu-item")[currentSelection];
+    menuItem.className = menuItemSelectedClassList;
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(setSelectionEffect, [currentSelection]);
 
   return (
     <div className="flex flex-row h-full w-full relative snap-start items-center">
       <div className="w-[33%] h-[90%] main-menu-edge ml-32 relative overflow-visible">
-        <div className="h-full w-full main-menu-container space-y-9 relative overflow-hidden no-scrollbar snap-y snap-mandatory">
-          <div className="h-[calc(50%-2.25rem)]" />
+        <div className="h-full w-full main-menu-container space-y-6 relative overflow-auto no-scrollbar snap-y snap-mandatory">
+          <div id="mmenu-0" className="h-[calc(50%-2.25rem)]" />
 
-          {[
-            "Project 1",
-            "Project 1.1",
-            "Project 2",
-            "Project 2.1",
-            "Project 3",
-            "Project 3.1",
-            "Project 4",
-            "Project 4.1",
-            "Project 5",
-            "Project 5.1",
-            "Project 6",
-            "Project 6.1",
-          ].map((i) => (
+          {projects.map((i) => (
             <div
-              key={i}
-              className="relative w-full h-16 hover:bg-white hover:bg-opacity-10 main-menu-item hover:border-y transition duration-200 uppercase font-bold font-mono snap-center"
+              key={i.index}
+              className="relative hover:cursor-pointer w-full h-16 hover:bg-white hover:bg-opacity-5 main-menu-item transition duration-100 uppercase font-bold font-mono snap-center"
               onClick={(e) => {
                 e.currentTarget.scrollIntoView({
                   behavior: "smooth",
@@ -71,7 +76,7 @@ function Page1() {
               }}
             >
               <span className="w-full h-full flex justify-center items-center">
-                {i}
+                {i.title}
               </span>
               <div className="absolute top-0 left-0 pointer-events-none z-50 h-full w-full main-menu-item-overlay" />
             </div>
