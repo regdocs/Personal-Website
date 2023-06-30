@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../../styles/portfolio.css";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import { projects } from "../../config/portfolio.config";
+import Terminal from "./terminal";
 
 function Page1() {
   const [currentSelection, setCurrentSelection] = useState(0);
@@ -67,7 +68,7 @@ function Page1() {
           {projects.map((i) => (
             <div
               key={i.index}
-              className="relative hover:cursor-pointer w-full h-16 hover:bg-white hover:bg-opacity-5 main-menu-item transition duration-100 uppercase font-bold font-mono snap-center"
+              className={menuItemClassList}
               onClick={(e) => {
                 e.currentTarget.scrollIntoView({
                   behavior: "smooth",
@@ -95,7 +96,10 @@ function Page1() {
           className="absolute top-1/2 -translate-y-1/2 -right-2 -translate-x-1/2"
         />
       </div>
-      <div className="w-[67%] h-full"></div>
+
+      <div className="w-[67%] h-full flex justify-center items-center">
+        <Terminal object={projects[currentSelection]} />
+      </div>
     </div>
   );
 }
