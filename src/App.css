@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Aurebesh";
+    src: url(./assets/AURABESH.ttf) format('truetype');
+}
+
 html,
 body,
 #root {
