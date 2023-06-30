@@ -1,0 +1,24 @@
+.terminal-border {
+  background: center / contain no-repeat url(../../src/assets/terminal.svg)
+    /* , center / 72% no-repeat url(../../src/assets/grid.png) */
+  ;
+}
+
+.pf-overlay {
+  background-color: #565d9f;
+  background-image: url(../assets/destroyer-deck-blurred.jpg);
+  background-blend-mode: multiply;
+}
+
+.aurebesh {
+  font-family: Aurebesh;
+}
+
+.glow-text {
+  text-shadow: white 0 0 5px;
+}
+
+#terminal-content {
+  mask: url(../assets/terminal-screen.svg);
+  mask-size: contain;
+}
