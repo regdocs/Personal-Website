@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import "../../styles/portfolio.css";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
@@ -6,6 +7,28 @@ import Terminal from "./terminal";
 
 function Page1() {
   const [currentSelection, setCurrentSelection] = useState(0);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    // Update windowSize state when the window is resized
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const menuItemBaseClassList =
     "relative cursor-pointer w-full h-16 main-menu-item transition duration-200 uppercase font-bold font-mono snap-center";

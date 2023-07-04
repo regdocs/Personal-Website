@@ -9,6 +9,7 @@ import About from "./sections/about";
 import { DotmapContext } from "./context/dotmap.context";
 import { useState } from "react";
 import Portfolio from "./sections/portfolio";
+import Blogs from "./sections/blogs";
 
 function App() {
   const location = useLocation();
@@ -88,14 +89,14 @@ function App() {
                 element={
                   <motion.div
                     key="blogs"
-                    className={containerClass}
+                    className={containerClass + " blogs-container"}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                     variants={pageTransitions}
                     transition={{ duration: 0.1, delay: 0 }}
                   >
-                    <Home setDotmapConfig={setDotmapConfig} />
+                    <Blogs setDotmapConfig={setDotmapConfig} />
                   </motion.div>
                 }
               />

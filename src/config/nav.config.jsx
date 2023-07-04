@@ -30,7 +30,7 @@ export const navConfig = [
     "Blogs",
     <FaRegNewspaper className="inline-block mr-2" fontSize={20} />,
     "/blogs",
-    1,
+    2,
   ],
   [
     4,

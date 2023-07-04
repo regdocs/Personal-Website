@@ -35,7 +35,7 @@ function Terminal({ object }) {
           id="terminal-content"
           className="absolute top-0 left-0 h-full w-full aurebesh flex flex-col"
         >
-          <img
+          {/* <img
             id="project-banner"
             src={object.banner}
             alt="project banner"
@@ -55,7 +55,8 @@ function Terminal({ object }) {
               typingDelay={100}
               speed={5}
             />
-          </div>
+          </div> */}
+          {<div className="h-[10%]"></div>}
           <div
             id="terminal-marquee"
             className="absolute bottom-[6%] left-[10%] text-xs uppercase aurebesh z-50"

@@ -1,13 +1,5 @@
 .terminal-border {
-  background: center / contain no-repeat url(../../src/assets/terminal.svg)
-    /* , center / 72% no-repeat url(../../src/assets/grid.png) */
-  ;
-}
-
-.pf-overlay {
-  background-color: #565d9f;
-  background-image: url(../assets/destroyer-deck-blurred.jpg);
-  background-blend-mode: multiply;
+  background: center / contain no-repeat url(../../src/assets/terminal.svg);
 }
 
 .aurebesh {
@@ -18,7 +10,24 @@
   text-shadow: white 0 0 5px;
 }
 
+#terminal-marquee {
+  mask-image: linear-gradient(to right, transparent, black, transparent);
+}
+
 #terminal-content {
   mask: url(../assets/terminal-screen.svg);
   mask-size: contain;
+}
+
+#project-banner {
+  border-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.glow-text-hover:hover {
+  text-shadow: white 0 0 10px;
+}
+
+.trans-border {
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }

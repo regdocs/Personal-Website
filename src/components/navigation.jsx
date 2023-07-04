@@ -23,7 +23,7 @@ function Navigation({ setDotmapConfig }) {
         <FaMandalorian fill="#474a75" fontSize={60} />
       </div>
 
-      <div className="pointer-events-auto shadow-lg h-20 w-fit no-scrollbar overflow-auto bg-[#2c3059] bg-opacity-50 justify-between flex flex-row px-5 items-center rounded-3xl inset-5 backdrop-blur-lg m-[20px]">
+      <div className="pointer-events-auto shadow-lg h-20 w-fit no-scrollbar overflow-auto bg-[#2c3059] bg-opacity-50 justify-between flex flex-row px-5 items-center rounded-3xl inset-5 backdrop-blur-md m-[20px]">
         {navConfig.map((i) => (
           <div
             onClick={() => {
@@ -42,7 +42,7 @@ function Navigation({ setDotmapConfig }) {
         ))}
       </div>
 
-      <div className="pointer-events-auto shadow-lg w-[190px] no-scrollbar overflow-auto h-20 bg-[#2c3059] bg-opacity-50 justify-between flex flex-row px-5 items-center rounded-3xl inset-5 backdrop-blur-lg m-[20px]">
+      <div className="pointer-events-auto shadow-lg w-[190px] no-scrollbar overflow-auto h-20 bg-[#2c3059] bg-opacity-50 justify-between flex flex-row px-5 items-center rounded-3xl inset-5 backdrop-blur-md m-[20px]">
         {[
           [
             0,

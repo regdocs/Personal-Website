@@ -3,7 +3,7 @@ import "../styles/marquee.css";
 
 function Marq() {
   return (
-    <div className="absolute overflow-hidden h-full w-full pointer-events-none">
+    <div className="absolute overflow-hidden h-full w-full pointer-events-none z-[300]">
       <div className="text-white text-sm marquee-cust -rotate-90 left-4 top-1/2 absolute -translate-x-1/2 w-[100vh] pointer-events-auto">
         <Marquee
           delay={3}

@@ -24,11 +24,12 @@ class LiveClockUpdate extends Component {
   render() {
     return (
       <div>
-        <h2 className="text-center text-4xl">
-          <span className="text-sm">GMT+05:30</span>
-          <br />
-          T+
-          {this.state.date.toLocaleTimeString("en-IN", { hour12: false })}
+        <h2 className="text-center text-2xl aurebesh">
+          <div className="text-xs m-[10px]">GMT+05:30</div>
+          <div className="">
+            asr t+
+            {this.state.date.toLocaleTimeString("en-IN", { hour12: false })}
+          </div>
         </h2>
       </div>
     );
