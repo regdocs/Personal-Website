@@ -1,0 +1,41 @@
+name: Build on Push
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+        
+      - name: Set up Git
+        run: |
+          git config --global user.name 'jayzsh'
+          git config --global user.email 'jay.dnb@outlook.in'
+        
+      - name: Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git checkout gh-pages
+          mv ./dist/* ./
+          rm dist
+          git add .
+          git commit -m "Running workflow:on_push.yaml"
+          git push origin gh-pages
