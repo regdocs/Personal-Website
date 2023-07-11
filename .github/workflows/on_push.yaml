@@ -36,7 +36,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git checkout gh-pages
-          cp ./dist/* ./
+          cp -r ./dist/* ./
           rm -rf dist
           git add .
           git commit -m "Running workflow:on_push.yaml"
